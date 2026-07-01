@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Relatório Ambiental Ceará</title>
+
+<style>
+body{
+    margin:0;
+    font-family: Arial, Helvetica, sans-serif;
+    background:#f4f7fb;
+}
+
+.container{
+    max-width:900px;
+    margin:auto;
+    padding:20px;
+}
+
+.header{
+    text-align:center;
+    background:white;
+    padding:20px;
+    border-radius:12px;
+    box-shadow:0 2px 10px rgba(0,0,0,0.1);
+}
+
+.header img{
+    width:140px;
+}
+
+h2{
+    margin:10px 0 0 0;
+    color:#0b5ed7;
+}
+
+.card{
+    background:white;
+    margin-top:15px;
+    padding:15px;
+    border-radius:12px;
+    box-shadow:0 2px 8px rgba(0,0,0,0.08);
+}
+
+label{
+    font-weight:bold;
+    display:block;
+    margin-top:10px;
+}
+
+input{
+    width:100%;
+    padding:10px;
+    margin-top:5px;
+    border-radius:8px;
+    border:1px solid #ccc;
+}
+
+.counter{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    margin-top:8px;
+}
+
+button{
+    padding:10px;
+    border:none;
+    border-radius:8px;
+    cursor:pointer;
+    font-size:14px;
+}
+
+.btn{
+    background:#0b5ed7;
+    color:white;
+    width:100%;
+    margin-top:10px;
+}
+
+.btn2{
+    background:#198754;
+    color:white;
+    width:100%;
+    margin-top:10px;
+}
+
+.btn3{
+    background:#dc3545;
+    color:white;
+    width:100%;
+    margin-top:10px;
+}
+
+.value{
+    font-size:18px;
+    font-weight:bold;
+    width:60px;
+    text-align:center;
+}
+
+.smallBtn{
+    background:#ddd;
+    width:40px;
+    height:35px;
+    font-size:18px;
+}
+
+textarea{
+    width:100%;
+    height:250px;
+    margin-top:10px;
+    border-radius:8px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="header">
+    <img src="logo.png">
+    <h2>Gerador de Relatório Diário</h2>
+</div>
+
+<div class="card">
+<label>Agente</label>
+<input id="agente" placeholder="Digite o nome do agente">
+
+<label>Líder</label>
+<input id="lider" placeholder="Digite o nome do líder">
+
+<label>Data</label>
+<input id="data">
+
+</div>
+
+<div class="card">
+<h3>Imóveis Visitados</h3>
+<div class="counter">
+<button class="smallBtn" onclick="dec('visitados')">-</button>
+<div class="value" id="visitados">0</div>
+<button class="smallBtn" onclick="inc('visitados')">+</button>
+</div>
+</div>
+
+<div class="card">
+<h3>Adesão</h3>
+<div class="counter">
+<button class="smallBtn" onclick="dec('adesao')">-</button>
+<div class="value" id="adesao">0</div>
+<button class="smallBtn" onclick="inc('adesao')">+</button>
+</div>
+
+<h3>Conscientizado não aderiu</h3>
+<div class="counter">
+<button class="smallBtn" onclick="dec('nao')">-</button>
+<div class="value" id="nao">0</div>
+<button class="smallBtn" onclick="inc('nao')">+</button>
+</div>
+
+<h3>Recusou assinatura</h3>
+<div class="counter">
+<button class="smallBtn" onclick="dec('recusou')">-</button>
+<div class="value" id="recusou">0</div>
+<button class="smallBtn" onclick="inc('recusou')">+</button>
+</div>
+
+<h3>Solicitação 65</h3>
+<div class="counter">
+<button class="smallBtn" onclick="dec('s65')">-</button>
+<div class="value" id="s65">0</div>
+<button class="smallBtn" onclick="inc('s65')">+</button>
+</div>
+
+<h3>Conexão calçada</h3>
+<div class="counter">
+<button class="smallBtn" onclick="dec('calcada')">-</button>
+<div class="value" id="calcada">0</div>
+<button class="smallBtn" onclick="inc('calcada')">+</button>
+</div>
+
+<h3>Intradomiciliar</h3>
+<div class="counter">
+<button class="smallBtn" onclick="dec('intra')">-</button>
+<div class="value" id="intra">0</div>
+<button class="smallBtn" onclick="inc('intra')">+</button>
+</div>
+
+<h3>Rede potencial</h3>
+<div class="counter">
+<button class="smallBtn" onclick="dec('rede')">-</button>
+<div class="value" id="rede">0</div>
+<button class="smallBtn" onclick="inc('rede')">+</button>
+</div>
+
+<h3>Autodeclarado</h3>
+<div class="counter">
+<button class="smallBtn" onclick="dec('auto')">-</button>
+<div class="value" id="auto">0</div>
+<button class="smallBtn" onclick="inc('auto')">+</button>
+</div>
+</div>
+
+<div class="card">
+<h3>Improcedente</h3>
+
+<h4>Fechado/Desocupado</h4>
+<div class="counter">
+<button class="smallBtn" onclick="dec('fechado')">-</button>
+<div class="value" id="fechado">0</div>
+<button class="smallBtn" onclick="inc('fechado')">+</button>
+</div>
+
+<h4>Cadastro</h4>
+<div class="counter">
+<button class="smallBtn" onclick="dec('cadastro')">-</button>
+<div class="value" id="cadastro">0</div>
+<button class="smallBtn" onclick="inc('cadastro')">+</button>
+</div>
+
+<h4>Fechado rede potencial</h4>
+<div class="counter">
+<button class="smallBtn" onclick="dec('fechrede')">-</button>
+<div class="value" id="fechrede">0</div>
+<button class="smallBtn" onclick="inc('fechrede')">+</button>
+</div>
+</div>
+
+<div class="card">
+
+<button class="btn" onclick="gerar()">GERAR E COPIAR</button>
+<button class="btn2" onclick="mostrarHistorico()">HISTÓRICO</button>
+<button class="btn3" onclick="limpar()">LIMPAR</button>
+
+<textarea id="saida"></textarea>
+
+<div id="hist"></div>
+
+</div>
+
+</div>
+
+<script>
+
+let campos = ["visitados","adesao","nao","recusou","s65","calcada","intra","rede","auto","fechado","cadastro","fechrede"];
+
+function inc(id){
+document.getElementById(id).innerText++;
+}
+
+function dec(id){
+let el = document.getElementById(id);
+if(el.innerText>0) el.innerText--;
+}
+
+function gerar(){
+
+let texto =
+`AGENTE: ${agente.value}
+LÍDER: ${lider.value}
+DATA: ${data.value}
+
+IMÓVEIS VISITADOS: ${visitados.innerText}
+
+PROCEDENTES:
+- Adesão: ${adesao.innerText}
+- Não aderiu: ${nao.innerText}
+- Recusou: ${recusou.innerText}
+- Solicitação 65: ${s65.innerText}
+- Conexão calçada: ${calcada.innerText}
+- Intradomiciliar: ${intra.innerText}
+- Rede potencial: ${rede.innerText}
+- Autodeclarado: ${auto.innerText}
+
+IMPROCEDENTE:
+- Fechado/desocupado: ${fechado.innerText}
+- Cadastro: ${cadastro.innerText}
+- Fechado rede potencial: ${fechrede.innerText}`;
+
+saida.value = texto;
+navigator.clipboard.writeText(texto);
+
+// salvar histórico
+let hist = JSON.parse(localStorage.getItem("hist")||"[]");
+hist.unshift(texto);
+if(hist.length>4) hist.pop();
+localStorage.setItem("hist",JSON.stringify(hist));
+
+alert("Copiado e salvo no histórico!");
+}
+
+function mostrarHistorico(){
+let hist = JSON.parse(localStorage.getItem("hist")||"[]");
+let html = "<h3>Últimos Relatórios</h3>";
+
+hist.forEach(h=>{
+html += `<pre style='background:#eee;padding:10px;border-radius:8px'>${h}</pre><hr>`;
+});
+
+document.getElementById("hist").innerHTML = html;
+}
+
+function limpar(){
+campos.forEach(c=>{
+let el = document.getElementById(c);
+if(el) el.innerText = 0;
+});
+agente.value="";
+lider.value="";
+saida.value="";
+}
+
+data.value = new Date().toISOString().split("T")[0];
+
+</script>
+
+</body>
+</html>
