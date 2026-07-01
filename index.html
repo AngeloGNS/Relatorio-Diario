@@ -249,11 +249,13 @@ let campos = ["visitados","adesao","nao","recusou","s65","calcada","intra","rede
 
 function inc(id){
 document.getElementById(id).innerText++;
+salvarDados();
 }
 
 function dec(id){
 let el = document.getElementById(id);
 if(el.innerText>0) el.innerText--;
+salvarDados();
 }
 
 function gerar(){
@@ -340,9 +342,22 @@ if(el) el.innerText = 0;
 agente.value="";
 lider.value="";
 saida.value="";
+
+localStorage.removeItem("dadosFormulario");
 }
 
-data.value = new Date().toISOString().split("T")[0];
+agente.addEventListener("input", salvarDados);
+lider.addEventListener("input", salvarDados);
+
+const hoje = new Date();
+
+const dia = String(hoje.getDate()).padStart(2, '0');
+const mes = String(hoje.getMonth() + 1).padStart(2, '0');
+const ano = hoje.getFullYear();
+
+data.value = `${dia}/${mes}/${ano}`;
+
+carregarDados();
 
 </script>
 
