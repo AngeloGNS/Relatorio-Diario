@@ -258,6 +258,35 @@ if(el.innerText>0) el.innerText--;
 
 function gerar(){
 
+    let totalVisitados = parseInt(visitados.innerText);
+
+let totalCategorias =
+parseInt(adesao.innerText) +
+parseInt(nao.innerText) +
+parseInt(recusou.innerText) +
+parseInt(s65.innerText) +
+parseInt(calcada.innerText) +
+parseInt(intra.innerText) +
+parseInt(rede.innerText) +
+parseInt(auto.innerText) +
+parseInt(fechado.innerText) +
+parseInt(cadastro.innerText) +
+parseInt(fechrede.innerText);
+
+if(totalVisitados !== totalCategorias){
+
+alert(
+`ERRO!
+
+Imóveis Visitados: ${totalVisitados}
+Soma das categorias: ${totalCategorias}
+
+Verifique os valores antes de gerar o relatório.`
+);
+
+return;
+}
+
 let texto =
 `AGENTE: ${agente.value}
 LÍDER: ${lider.value}
