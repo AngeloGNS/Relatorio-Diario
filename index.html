@@ -336,26 +336,15 @@ function gerarParcial(){
 let texto =
 `RELATÓRIO PARCIAL
 
-AGENTE: ${agente.value}
 LÍDER: ${lider.value}
 DATA: ${data.value}
 
 IMÓVEIS VISITADOS: ${visitados.innerText}
 
-PROCEDENTES:
-- Adesão: ${adesao.innerText}
-- Não aderiu: ${nao.innerText}
-- Recusou: ${recusou.innerText}
-- Solicitação 65: ${s65.innerText}
 - Conexão calçada: ${calcada.innerText}
 - Intradomiciliar: ${intra.innerText}
 - Rede potencial: ${rede.innerText}
 - Autodeclarado: ${auto.innerText}
-
-IMPROCEDENTE:
-- Fechado/desocupado: ${fechado.innerText}
-- Cadastro: ${cadastro.innerText}
-- Fechado rede potencial: ${fechrede.innerText}`;
 
 saida.value = texto;
 navigator.clipboard.writeText(texto);
